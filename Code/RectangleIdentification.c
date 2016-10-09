@@ -8,7 +8,7 @@ void main(void)
 	
 	float x1,y1,x2,y2,x3,y3,height, x4,y4, refAngle,theta, distance;
 	
-	/*printf("\n\n Upper Points \n");	
+	printf("\n\n Upper Points \n");	
 
 	printf("\nX1:");
 	scanf("%f",&x1);
@@ -24,16 +24,19 @@ void main(void)
 	printf("\nX3:");
 	scanf("%f",&x3);
 	printf("\nY3:");
-	scanf("%f",&y3);*/
+	scanf("%f",&y3);
 
-	x1=6;
+
+	//Test Values
+
+	/*x1=6;
 	y1=29;
 
 	x2=38;
 	y2=11;
 	
 	x3=10;
-	y3=12.2;
+	y3=12.2;*/
 
 	refAngle=atanf(fabsf((y2-y1)/(x2-x1))); //Reference Line is skewed
 
@@ -42,28 +45,28 @@ void main(void)
 		refAngle=-refAngle;
 	}
 
-	printf("\n refAngle= %f",refAngle);
+	//printf("\n refAngle= %f",refAngle);
 	
 	theta=atanf(fabsf((y1-y3)/(x1-x3)));
-	printf("\n Theta1 = %f",theta);
+	//printf("\n Theta1 = %f",theta);
 	theta=theta+refAngle; //The line is relative to skewed line
-	printf("\n Theta2 = %f",theta);
+	//printf("\n Theta2 = %f",theta);
 	distance=pow((x1-x3),2)+pow((y1-y3),2);
 	distance=pow(distance,0.5);
 
-	printf("\n Distance = %f",distance);
+	//printf("\n Distance = %f",distance);
 
 	
 
 	height=distance*sinf(theta);
 
-	printf("\n Height = %f",height);
+	//printf("\n Height = %f",height);
 
 	//With the height, the other corner of the Rectangle is
 
 	theta=(M_PI/2)+refAngle;
 
-	printf("\n Theta = %f",theta);
+	//printf("\n Theta = %f",theta);
 
 	x4=x1-(height*cosf(theta));
 	y4=y1-(height*sinf(theta));
@@ -75,7 +78,7 @@ void main(void)
 	x4=(x4+x2)/2;
 	y4=(y4+y2)/2;
 
-	printf("\nCentroid X=%f \t Y=%f", x4,y4);
+	printf("\n\nCentroid X=%f \t Y=%f", x4,y4);
 
 
 }

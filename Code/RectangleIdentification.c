@@ -6,7 +6,7 @@ void main(void)
 {
 
 	
-	float x1,y1,x2,y2,x3,y3,height, x4,y4, refAngle,theta, distance;
+	float x1,y1,x2,y2,x3,y3, x4,y4,phi,m1,m2,delX,delY,del;
 	
 	printf("\n\n Upper Points \n");	
 
@@ -38,47 +38,46 @@ void main(void)
 	x3=10;
 	y3=12.2;*/
 
-	refAngle=atanf(fabsf((y2-y1)/(x2-x1))); //Reference Line is skewed
 
-	if(y2<y1)
-	{
-		refAngle=-refAngle;
-	}
+	//Test Values 2
 
-	//printf("\n refAngle= %f",refAngle);
+	/*x1=3;
+	y1=4;
+
+	x2=7;
+	y2=6;
 	
-	theta=atanf(fabsf((y1-y3)/(x1-x3)));
-	//printf("\n Theta1 = %f",theta);
-	theta=theta+refAngle; //The line is relative to skewed line
-	//printf("\n Theta2 = %f",theta);
-	distance=pow((x1-x3),2)+pow((y1-y3),2);
-	distance=pow(distance,0.5);
-
-	//printf("\n Distance = %f",distance);
+	x3=1;
+	y3=1;*/
 
 	
 
-	height=distance*sinf(theta);
+	m2=(y2-y1)/(x2-x1);
+	m1=-1/m2; //Since the line is perpendicular
+	
+	del=-m1+m2;
+	
+	delX=(-m1*x1)+(m2*x3)+y1-y3;
+	
+	delY=(-m1*y3)+(m1*m2*x3)+(m2*y1)-(m1*m2*x1);
 
-	//printf("\n Height = %f",height);
+	x4=delX/del;
+	y4=delY/del;
 
-	//With the height, the other corner of the Rectangle is
+	
 
-	theta=(M_PI/2)+refAngle;
+	printf("\n\nThird Corner X=%f \t Y=%f", x4,y4);
 
-	//printf("\n Theta = %f",theta);
 
-	x4=x1-(height*cosf(theta));
-	y4=y1-(height*sinf(theta));
+	
 
-	printf("The Rectangle Corner is X:%f \t Y:%f\n\n",x4,y4);
-
+	
 	//Finally, the centroid
 
 	x4=(x4+x2)/2;
 	y4=(y4+y2)/2;
 
-	printf("\n\nCentroid X=%f \t Y=%f", x4,y4);
+	printf("\n\nCentroid X=%f \t Y=%f",x4,y4);
 
 
 }

@@ -50,19 +50,28 @@ void main(void)
 	x3=1;
 	y3=1;*/
 
-	
+	if(y2!=y1) //The Rectangle is skewed
+	{
 
-	m2=(y2-y1)/(x2-x1);
-	m1=-1/m2; //Since the line is perpendicular
+		m2=(y2-y1)/(x2-x1);
+		m1=-1/m2; //Since the line is perpendicular
 	
-	del=-m1+m2;
+		del=-m1+m2;
 	
-	delX=(-m1*x1)+(m2*x3)+y1-y3;
+		delX=(-m1*x1)+(m2*x3)+y1-y3;
 	
-	delY=(-m1*y3)+(m1*m2*x3)+(m2*y1)-(m1*m2*x1);
+		delY=(-m1*y3)+(m1*m2*x3)+(m2*y1)-(m1*m2*x1);
 
-	x4=delX/del;
-	y4=delY/del;
+		x4=delX/del;
+		y4=delY/del;
+	}
+
+	else //Damn easy to construct the Rectangle, reference plane is same as the Rectangular plane
+	{
+		x4=x1;
+		y4=y3;
+	}
+		
 
 	
 

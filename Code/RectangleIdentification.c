@@ -50,7 +50,7 @@ void main(void)
 	x3=1;
 	y3=1;*/
 
-	if(y2!=y1) //The Rectangle is skewed
+	if((y2!=y1) &&(x2!=x1)) //The Rectangle is skewed
 	{
 
 		m2=(y2-y1)/(x2-x1);
@@ -66,13 +66,22 @@ void main(void)
 		y4=delY/del;
 	}
 
-	else //Damn easy to construct the Rectangle, reference plane is same as the Rectangular plane
+	else if(y2==y1) //Damn easy to construct the Rectangle, reference plane is same as the Rectangular plane
 	{
 		x4=x1;
 		y4=y3;
 	}
 		
+	else if(x2==x1)
+	{
+		x4=x3;
+		y4=y1;
+	}
 
+	else
+	{
+		printf("\n\nImprobable Co-Ordinates");
+	}
 	
 
 	printf("\n\nThird Corner X=%f \t Y=%f", x4,y4);
